@@ -1,19 +1,19 @@
 
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
-function linkStyle(hex
-  : string) {
-  return {
-    padding: '1rem 2rem',
-    borderRadius: '14px',
-    backgroundColor: `#${hex}`,
-    color: '#fff',
-    fontWeight: 600,
-    textDecoration: 'none',
-    boxShadow: `0 6px 16px #${hex}99`,
-    transition: 'all 0.3s ease',
-  };
-}
+// function linkStyle(hex
+//   : string) {
+//   return {
+//     padding: '1rem 2rem',
+//     borderRadius: '14px',
+//     backgroundColor: `#${hex}`,
+//     color: '#fff',
+//     fontWeight: 600,
+//     textDecoration: 'none',
+//     boxShadow: `0 6px 16px #${hex}99`,
+//     transition: 'all 0.3s ease',
+//   };
+// }
 
 const Home = () => {
   return (
@@ -39,11 +39,11 @@ const Home = () => {
         Welcome to my personal Git Blog where I share my ideas, reflections,
         and thoughts. Feel free to explore and leave a message on the Guestbook!
       </p>
-      <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
+      {/* <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
         <Link to="/profile" style={linkStyle('a083f9')}>👤 Profile</Link>
         <Link to="/journal" style={linkStyle('7db7ff')}>📘 Journal</Link>
         <Link to="/discussion" style={linkStyle('ffa3c7')}>💬 Guestbook</Link>
-      </div>
+      </div> */}
     </div>
   );
 };
