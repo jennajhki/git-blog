@@ -1,0 +1,38 @@
+
+
+
+.topnav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 56px;
+  background: #f3f0ff;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.topnav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.topnav li a {
+  text-decoration: none;
+  color: #5e1ccc;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+}
+
+.topnav li.active a {
+  background-color: #7b2ff7;
+  color: #fff;
+  border-radius: 8px;
+}
