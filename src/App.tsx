@@ -1,14 +1,25 @@
+import { Routes, Route } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
+import Home from './pages/Home';
+import Profile from './pages/Profile';
+import Journal from './pages/Journal';
+import Discussion from './pages/Discussion';
+import './App.css';
 
-const Discussion = () => {
+const App = () => {
   return (
-    <div>
+    <div className="layout">
       <Sidebar />
-      <section style={{ marginTop: '56px', padding: '2rem' }}>
-        ...
-      </section>
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/journal" element={<Journal />} />
+          <Route path="/discussion" element={<Discussion />} />
+        </Routes>
+      </main>
     </div>
   );
 };
 
-export default Discussion;
+export default App;

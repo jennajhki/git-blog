@@ -1,35 +1,47 @@
-import { useEffect, useState } from 'react';
-import Sidebar from '../components/Sidebar';
-
-interface JournalEntry {
-  id: number;
-  title: string;
-  content: string;
+function linkStyle(hex: string) {
+  return {
+    padding: '1rem 2rem',
+    borderRadius: '14px',
+    backgroundColor: `#${hex}`,
+    color: '#fff',
+    fontWeight: 600,
+    textDecoration: 'none',
+    boxShadow: `0 6px 16px #${hex}99`,
+    transition: 'all 0.3s ease',
+  };
 }
 
-const Journal = () => {
-  const [entries, setEntries] = useState<JournalEntry[]>([]);
-
-  useEffect(() => {
-    fetch('/api/journal')
-      .then((res) => res.json())
-      .then((data) => setEntries(data));
-  }, []);
-
+const Home = () => {
   return (
-    <div>
-      <Sidebar />
-      <section style={{ marginTop: '56px', padding: '2rem' }}>
-        <h1>Journal Entries</h1>
-        {entries.map((entry) => (
-          <article key={entry.id}>
-            <h2>{entry.title}</h2>
-            <p>{entry.content}</p>
-          </article>
-        ))}
-      </section>
+    <div
+      style={{
+        marginTop: '56px',
+        padding: '4rem 2rem',
+        background: 'radial-gradient(circle at top left, #f3e7fe, #e3f1ff)',
+        fontFamily: 'Segoe UI, sans-serif',
+        minHeight: 'calc(100vh - 56px)',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: '2rem',
+        textAlign: 'center',
+      }}
+    >
+      <h1 style={{ fontSize: '3.5rem', fontWeight: 800, color: '#5e1ccc' }}>
+        ✨ Hello, I'm Junghyun!
+      </h1>
+      <p style={{ fontSize: '1.25rem', color: '#4b3869', maxWidth: '600px' }}>
+        Welcome to my personal Git Blog where I share my ideas, reflections,
+        and thoughts. Feel free to explore and leave a message on the Guestbook!
+      </p>
+      <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
+        <a href="/profile" style={linkStyle('a083f9')}>👤 Profile</a>
+        <a href="/journal" style={linkStyle('7db7ff')}>📘 Journal</a>
+        <a href="/discussion" style={linkStyle('ffa3c7')}>💬 Guestbook</a>
+      </div>
     </div>
   );
 };
 
-export default Journal;
+export default Home;
