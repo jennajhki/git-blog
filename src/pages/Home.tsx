@@ -1,4 +1,6 @@
-function linkStyle(hex: string) {
+
+function linkStyle(hex
+  : string) {
   return {
     padding: '1rem 2rem',
     borderRadius: '14px',

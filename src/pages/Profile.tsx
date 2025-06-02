@@ -1,5 +1,4 @@
 import Sidebar from '../components/Sidebar';
-
 const Profile = () => {
   return (
     <div>
@@ -11,7 +10,7 @@ const Profile = () => {
         <p>이 블로그는 저의 학습, 일상, 그리고 생각들을 정리하는 공간입니다.</p>
         <p>디자인과 사용자 경험에도 관심이 많고, 꾸준히 성장하며 더 나은 개발자가 되고 싶습니다.</p>
         <p style={{ marginTop: '1rem' }}>
-          제 웹개발 블로그에요! 🌐 {" "}
+          웹개발 블로그 🌐 {" "}
           <a
             href="https://jennajhki.github.io/blog/"
             target="_blank"

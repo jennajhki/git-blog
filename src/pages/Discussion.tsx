@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import React from 'react';
 import styles from './Discussion.module.css';
 
 interface Comment {
@@ -33,7 +34,7 @@ const Discussion = () => {
 
   return (
     <section className={styles.section}>
-      <h2>Share your thoughts, questions, or feedback here! 💬</h2>
+      <h2>Share your thoughts, questions, or feedback here!💬</h2>
       <form onSubmit={handleSubmit} className={styles.form}>
         <input
           type="text"
