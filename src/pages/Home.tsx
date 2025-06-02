@@ -1,4 +1,6 @@
 
+import { Link } from 'react-router-dom';
+
 function linkStyle(hex
   : string) {
   return {
@@ -38,9 +40,9 @@ const Home = () => {
         and thoughts. Feel free to explore and leave a message on the Guestbook!
       </p>
       <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
-        <a href="/Profile" style={linkStyle('a083f9')}>👤 Profile</a>
-        <a href="/Journal" style={linkStyle('7db7ff')}>📘 Journal</a>
-        <a href="/Discussion" style={linkStyle('ffa3c7')}>💬 Guestbook</a>
+        <Link to="/profile" style={linkStyle('a083f9')}>👤 Profile</Link>
+        <Link to="/journal" style={linkStyle('7db7ff')}>📘 Journal</Link>
+        <Link to="/discussion" style={linkStyle('ffa3c7')}>💬 Guestbook</Link>
       </div>
     </div>
   );
