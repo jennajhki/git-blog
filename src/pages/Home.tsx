@@ -38,9 +38,9 @@ const Home = () => {
         and thoughts. Feel free to explore and leave a message on the Guestbook!
       </p>
       <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
-        <a href="/profile" style={linkStyle('a083f9')}>👤 Profile</a>
-        <a href="/journal" style={linkStyle('7db7ff')}>📘 Journal</a>
-        <a href="/discussion" style={linkStyle('ffa3c7')}>💬 Guestbook</a>
+        <a href="/Profile" style={linkStyle('a083f9')}>👤 Profile</a>
+        <a href="/Journal" style={linkStyle('7db7ff')}>📘 Journal</a>
+        <a href="/Discussion" style={linkStyle('ffa3c7')}>💬 Guestbook</a>
       </div>
     </div>
   );
