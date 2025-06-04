@@ -34,7 +34,7 @@ const Discussion = () => {
 
   return (
     <section className={styles.section}>
-      <h2>Share your thoughts, questions, or feedback here!💬</h2>
+      <h2>Share your thoughts, questions, or feedback here!</h2>
       <form onSubmit={handleSubmit} className={styles.form}>
         <input
           type="text"
@@ -45,7 +45,7 @@ const Discussion = () => {
         />
         <input
           type="text"
-          placeholder="Type Your Message Here!"
+          placeholder="Enter a Message"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           required
