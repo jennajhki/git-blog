@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>OOP (Object-oriented programming) - Jenna's Dev Blog</title>
+  <link rel="stylesheet" href="post7.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">jenna.dev</div>
+    <nav class="nav-links">
+      <a href="index.html">home</a>
+      <a href="about.html">about</a>
+      <a href="blog.html">blog</a>
+    </nav>
+  </header>
+
+  <main class="post-container">
+    <h1>객체지향 프로그래밍(OOP) 개념과 도형 계산 실습</h1>
+    <p class="date">📅 2025년 5월 21일</p>
+
+    <section class="post-content">
+      <p>오늘은 JavaScript에서 <strong>객체지향 프로그래밍(OOP)</strong> 개념과  
+      <strong>클래스 기반 설계</strong>를 통해 도형의 면적과 둘레를 계산하는 실습을 진행했다.</p>
+
+      <h2>1. OOP의 기본 개념</h2>
+      <ul>
+        <li><strong>Encapsulation (캡슐화)</strong>: 데이터(속성)와 기능(메서드)를 객체 안에 묶는 것</li>
+        <li><strong>Inheritance (상속)</strong>: 부모 클래스의 속성과 메서드를 자식 클래스가 물려받는 것</li>
+        <li><strong>Abstraction (추상화)</strong>: 복잡한 구현을 감추고 단순한 인터페이스만 노출</li>
+        <li><strong>Polymorphism (다형성)</strong>: 같은 메서드 이름이라도 객체에 따라 다른 동작 수행</li>
+      </ul>
+
+      <h2>2. 키워드 정리</h2>
+      <ul>
+        <li><code>this</code>: 해당 인스턴스 객체를 가리킴</li>
+        <li><code>constructor</code>: 인스턴스를 생성할 때 실행되는 초기화 함수</li>
+        <li><code>extends</code>: 상속을 나타냄 (자식 → 부모)</li>
+        <li><code>super</code>: 부모 클래스의 constructor를 호출</li>
+      </ul>
+
+      <h2>3. JavaScript의 한계</h2>
+      <p>JavaScript는 OOP 언어이지만 <strong>private</strong>, <strong>interface</strong> 같은 기능이 부족하다.</p>
+      <ul>
+        <li><strong>은닉화 (private)</strong>: JS에서는 완벽하게 지원되지 않음 (TypeScript나 최신 JS 일부 브라우저만 가능)</li>
+        <li><strong>추상화 (interface)</strong>: interface 키워드가 없어 구조 설계에 제약이 있음</li>
+      </ul>
+
+      <h2>4. 도형 계산 예제</h2>
+      <p>추상 클래스 <code>Shape</code>를 만들고, 그 하위 클래스로 <code>Circle</code>, <code>Triangle</code>, <code>Rectangle</code>, <code>Square</code>를 정의했다.</p>
+
+      <pre><code>
+        // <span style="color: rgb(150, 150, 255);">Shape: 추상 클래스. 직접 인스턴스화하지 않고 상속만 허용</span>
+        class Shape {
+          constructor() {
+            if (this.constructor === Shape) {
+              throw new Error("추상 클래스는 인스턴스화할 수 없습니다");
+            }
+          }
+        
+          <span style="color: rgb(150, 150, 255);">area() {</span>
+            throw new Error("자식 클래스에서 area() 구현 필요");
+          }
+        
+          <span style="color: rgb(150, 150, 255);">perimeter() {</span>
+            throw new Error("자식 클래스에서 perimeter() 구현 필요");
+          }
+        }
+        
+        // <span style="color: green;">Circle: Shape를 상속한 자식 클래스 (extends 사용)</span>
+        // super(): 부모 클래스(Shape)의 constructor 호출
+        class Circle extends Shape {
+          constructor(radius) {
+            super(); // 부모의 constructor 먼저 실행
+            this.radius = radius; // 인스턴스(객체)의 속성
+          }
+        
+          area() {
+            return Math.PI * this.radius ** 2;
+          }
+        
+          perimeter() {
+            return 2 * Math.PI * this.radius;
+          }
+        }
+        
+        // <span style="color: green;">Triangle: 삼각형. 자식 클래스는 부모의 모든 기능을 물려받음</span>
+        class Triangle extends Shape {
+          constructor(a, b, c) {
+            super();
+            this.a = a;
+            this.b = b;
+            this.c = c;
+          }
+        
+          perimeter() {
+            return this.a + this.b + this.c;
+          }
+        
+          area() {
+            const s = this.perimeter() / 2;
+            return Math.sqrt(s * (s - this.a) * (s - this.b) * (s - this.c));
+          }
+        }
+        
+        // <span style="color: green;">Rectangle: 사각형 클래스. width와 height 속성 포함</span>
+        class Rectangle extends Shape {
+          constructor(width, height) {
+            super();
+            this.width = width;
+            this.height = height;
+          }
+        
+          area() {
+            return this.width * this.height;
+          }
+        
+          perimeter() {
+            return 2 * (this.width + this.height);
+          }
+        }
+        
+        // <span style="color: green;">Square: Rectangle을 상속한 하위 클래스 (정사각형)</span>
+        // Rectangle의 모든 메서드를 그대로 사용할 수 있음
+        class Square extends Rectangle {
+          constructor(side) {
+            super(side, side); // width = side, height = side
+          }
+        }
+        
+        // <span style="color: rgb(255, 158, 158);">주요 용어 설명:</span>
+        // <span style="color: rgb(255, 158, 158);">클래스(class): 설계도</span> | <span style="color: rgb(255, 158, 158);">인스턴스(instance): 실제 객체</span>
+        // <span style="color: rgb(255, 158, 158);">속성(property): 값/데이터</span> | <span style="color: rgb(255, 158, 158);">메서드(method): 동작</span>
+        // <span style="color: rgb(255, 158, 158);">상속(inheritance): 부모 기능 물려받기</span> | <span style="color: rgb(255, 158, 158);">super(): 부모 constructor 호출</span>
+        </code></pre>
+        
+
+
+      <p>클래스를 정리해두고 <code>extends</code>, <code>super</code>를 이용해 하위 클래스에서 필요한 부분만 추가하니  
+      코드가 훨씬 간결하고, 반복도 줄일 수 있어서 더 효율적이었다.</p>
+
+    </section>
+  </main>
+</body>
+</html>
